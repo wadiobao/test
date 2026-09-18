@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Environment
+.env
+!.env.example
+
 # Playwright
 /test-results/
 /playwright-report/
