@@ -20,8 +20,11 @@ test.describe("Full user journey", () => {
     });
     await expect(todoRow.first()).toBeVisible();
 
-    // Toggle completion on
-    const checkbox = todoRow.first().getByRole("checkbox");
+    // Toggle completion on (name-scoped: TodoItem also renders a
+    // "Select {title}" checkbox for bulk actions - see Tier 4)
+    const checkbox = todoRow
+      .first()
+      .getByRole("checkbox", { name: `Mark ${title} as complete` });
     await checkbox.click();
     await expect(checkbox).toBeChecked();
 
